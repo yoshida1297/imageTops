@@ -48,7 +48,6 @@ public class Widget extends WidgetFrame {
   public void paint() {
     pane.removeAll();
     imageScaling = new ImageUtils().scaleImage(scale, image);
-    //background_image = new JLabel(imageScaling);
     LabelImage.setIcon(imageScaling);
     // 背景に合わせてリサイズ
     setSize(imageScaling.getIconWidth(), imageScaling.getIconHeight());
@@ -80,6 +79,8 @@ public class Widget extends WidgetFrame {
             dispose();
           }
         }
+
+        // t = new Image
         if( key == KeyEvent.VK_T){
           WidgetContainer.addWidget();
         }

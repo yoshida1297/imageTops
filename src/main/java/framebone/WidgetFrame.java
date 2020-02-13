@@ -94,4 +94,25 @@ public class WidgetFrame extends JFrame {
     public void paint(){
         // not
     }
+
+    @Override
+    public boolean equals(Object o){
+      if(o == this){
+        return true;
+      }
+      if(o == null){
+        return false;
+      }
+      if(!(o instanceof WidgetFrame)){
+        return false;
+      }
+      WidgetFrame object = (WidgetFrame) o;
+      if(object.equals(this)){
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
 }
