@@ -2,6 +2,8 @@ package framebone;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Date;
+
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;
 
@@ -10,8 +12,10 @@ public class WidgetFrame extends JFrame {
     // マウスクリック用のハンドラ
     static Point mouseDownCompCoords;
     double scale = 1.0;
+    public final Long generateTime = new Date().getTime();
 
     public WidgetFrame() {
+        
         // 常時前面表示
         setAlwaysOnTop(true);
         // タイトルバーの表示を無効化
@@ -107,7 +111,7 @@ public class WidgetFrame extends JFrame {
         return false;
       }
       WidgetFrame object = (WidgetFrame) o;
-      if(object.equals(this)){
+      if(object.generateTime.equals(this.generateTime)){
         return true;
       }
       else{

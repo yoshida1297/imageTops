@@ -25,13 +25,14 @@ public class Widget extends WidgetFrame {
         // extension check
         String extension = path.substring(path.lastIndexOf(".") + 1);
         checker = extensionCheck(extension);
-      }
-      else {
+      } else {
         System.exit(0);
       }
 
-      if(path != null) {
-        new Widget(path);
+      if (path != null) {
+        setBackground(new Color(0, 0, 0, 0.1f));
+          image = new ImageIcon(path);
+          paint();
       }
     }
   }
@@ -59,11 +60,21 @@ public class Widget extends WidgetFrame {
   }
 
   private boolean extensionCheck(String path) {
-    String[] extensions = {"jpeg", "png", "gif"};
+    String[] extensions = { "jpeg", "png", "gif" };
     boolean match = Arrays.stream(extensions).anyMatch(s -> s.equals(path));
     return match;
   }
 
+  private void remove() {
+    WidgetContainer.removeWidget(this);
+
+    if (WidgetContainer.contain.size() == 1) {
+      System.exit(0);
+    } else {
+      dispose();
+    }
+
+  }
 
   @Override
   public void keyBindSetting() {
@@ -71,17 +82,11 @@ public class Widget extends WidgetFrame {
       public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_ESCAPE) {
-
-          if(WidgetContainer.contain.size() == 1){
-            System.exit(0);
-          }
-          else{
-            dispose();
-          }
+          remove();
         }
 
         // t = new Image
-        if( key == KeyEvent.VK_T){
+        if (key == KeyEvent.VK_T) {
           WidgetContainer.addWidget();
         }
 
@@ -98,5 +103,4 @@ public class Widget extends WidgetFrame {
       }
     });
   }
-
 }
