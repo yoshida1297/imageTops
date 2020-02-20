@@ -40,13 +40,7 @@ public class WidgetFrame extends JFrame {
             public void keyPressed(KeyEvent e) {
                 int key = e.getKeyCode();
                 if (key == KeyEvent.VK_ESCAPE) {
-
-                    if(WidgetContainer.contain.size() == 1){
-                      System.exit(0);
-                    }
-                    else{
-                      dispose();
-                    }
+                    remove();
                 }
             }
 
@@ -98,6 +92,12 @@ public class WidgetFrame extends JFrame {
     public void paint(){
         // not
     }
+
+    
+  protected void remove() {
+    WidgetContainer.removeWidget(this);
+    dispose();
+  }
 
     @Override
     public boolean equals(Object o){

@@ -14,7 +14,6 @@ public class Widget extends WidgetFrame {
   private JPanel pane = new JPanel();
   private String path;
 
-  // choose
   public Widget() {
     JFileChooser chooser = new JFileChooser();
     boolean checker = false;
@@ -30,9 +29,9 @@ public class Widget extends WidgetFrame {
       }
 
       if (path != null) {
-        setBackground(new Color(0, 0, 0, 0.1f));
-          image = new ImageIcon(path);
-          paint();
+        setBackground(new Color(0, 0, 0, 0.1f));
+        image = new ImageIcon(path);
+        paint();
       }
     }
   }
@@ -65,16 +64,6 @@ public class Widget extends WidgetFrame {
     return match;
   }
 
-  private void remove() {
-    WidgetContainer.removeWidget(this);
-
-    if (WidgetContainer.contain.size() == 1) {
-      System.exit(0);
-    } else {
-      dispose();
-    }
-
-  }
 
   @Override
   public void keyBindSetting() {
