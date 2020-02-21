@@ -102,6 +102,7 @@ public class WidgetFrame extends JFrame {
   }
 
   private void showPopup(MouseEvent e) {
+    //　ここにポップアップの中身をすべてまとめたい
     popup.show(e.getComponent(), e.getX(), e.getY());
   }
 
